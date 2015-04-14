@@ -26,10 +26,14 @@ def count_words(filename):
 
 def print_words(full_dic):
 
-    srt_keys = sorted(full_dic.keys())
+    srt_keys = sorted(full_dic.items(), key = lambda x: x[1])
+    print srt_keys
 
-    for key in srt_keys:
-        print "%s: %d" %(key, full_dic[key])
+    # for key,value in full_dic.iteritems():
+    #     if srt_keys
+
+    # for key in srt_keys:
+    #     print "%s: %d" %(srt_keys[key][0], srt_keys[key][1])
     # for key, value in full_dic.iteritems():
     #     print "%s: %d" %(key, value)
 
