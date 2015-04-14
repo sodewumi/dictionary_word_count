@@ -1,4 +1,7 @@
-# put your code here.
+from sys import argv
+
+script, filename = argv
+
 
 def count_words(filename):
     open_file = open(filename)
@@ -9,16 +12,17 @@ def count_words(filename):
     for line in open_file:
         words = line.rstrip().split(" ")
         # print words
-        alpha_wrd = ""
+        
 
         for word in words:
+            alpha_wrd = ""
             # print word.upper()
             for ltr in word:
                 # print ltr.upper()
                 if ltr.isalpha() or ltr is "'":
                     alpha_wrd = alpha_wrd + ltr
             rm_punctuation.append(alpha_wrd.lower())
-            alpha_wrd = ""
+           
 
     for word in rm_punctuation:
         if word not in word_count:
@@ -26,10 +30,14 @@ def count_words(filename):
         else:
             word_count[word] = word_count[word] + 1
 
-    return word_count        
+    return print_words(word_count)        
 
-    print rm_punctuation
-print(count_words("test.txt"))
+def print_words(full_dic):
+    for key, value in full_dic.iteritems():
+        print "%s: %d" %(key, value)
+
+
+print(count_words(filename))
 
 
 
